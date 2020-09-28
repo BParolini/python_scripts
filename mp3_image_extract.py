@@ -1,4 +1,5 @@
 import os
+import sys
 from mutagen.id3 import ID3
 
 
@@ -13,6 +14,7 @@ def save_folder_jpg(mp3_file):
 
 
 def navigate_directory(directory):
+    print("Navigating to: ", directory)
     sub_directory = ""
     for directory_name in os.listdir(directory):
         sub_directory = os.path.join(directory, directory_name)
@@ -34,4 +36,4 @@ def find_folder_jpg(directory):
     return False
 
 
-navigate_directory("/home/bparolini/Downloads/2018 - Xenoblade Chronicles 2/")
+navigate_directory(sys.argv[1])
