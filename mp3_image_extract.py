@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import os
 import sys
 from mutagen.id3 import ID3
@@ -36,4 +38,5 @@ def find_folder_jpg(directory):
     return False
 
 
-navigate_directory(sys.argv[1])
+if __name__ == "__main__":
+    navigate_directory(sys.argv[1])

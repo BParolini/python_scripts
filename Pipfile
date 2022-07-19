@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-mutagen = "*"
+mutagen = "==1.45.1"
 
 [dev-packages]
 
