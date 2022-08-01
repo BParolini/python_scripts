@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+"""
+The image is named **folder.jpg** and saved in the same directory as the audio files.
+"""
+
 
 import os
 import sys
