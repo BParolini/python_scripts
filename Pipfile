@@ -4,9 +4,11 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-mutagen = "==1.45.1"
+mutagen = ">=1.45.1"
+requests = ">=2.32.3"
 
 [dev-packages]
+flake8 = ">=7.1.1"
 
 [requires]
-python_version = "3.10"
+python_version = "3.13"
