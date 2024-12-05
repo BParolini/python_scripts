@@ -35,7 +35,7 @@ endpoint = f"{environments[args.env]}/{actions[args.actions]}"
 wait_time: int = int(args.wait) if args.wait else 20
 
 with open(args.file) as file:
-    lines = file.readlines()
+    lines = [int(listing_id) for listing_id in file.read().split("\n") if listing_id]
 
 print(f"Endpoint: {endpoint}")
 print(f"Wait time: {wait_time}")
@@ -44,21 +44,21 @@ print(f"Lines per iteration: {args.lines}")
 print()
 
 # Spliting file lines into chunks
-chunks = [lines[i:i + args.lines]
-                     for i in range(0, len(lines), args.lines)]
+chunks = [lines[i:i + int(args.lines)]
+                     for i in range(0, len(lines), int(args.lines))]
 print(f"Chunks: {len(chunks)}")
 
 for idx, chunk in enumerate(chunks):
     print(f"Sending chunk {idx}/{len(chunks)}")
 
-    ids = ",".join(chunk)
+    #ids = ",".join(chunk)
     print(f"Request {endpoint}")
-    print(f"{ids:<80}")
+    #print(f"{chunks:<80}")
     headers = {
         "accept": "application/json",
         "Content-Type": "application/json",
     }
-    response = requests.post(endpoint, headers=headers, json=f"[{ids}]")
+    response = requests.post(endpoint, headers=headers, json=chunks)
 
     print(f"Request response: {response.status_code}")
 

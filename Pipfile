@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 mutagen = ">=1.45.1"
 requests = ">=2.32.3"
+boto3 = ">=1.35.60"
+psycopg = ">=3.2.3"
 
 [dev-packages]
 flake8 = ">=7.1.1"
